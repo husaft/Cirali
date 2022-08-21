@@ -7,5 +7,8 @@ Zum Beispiel verwendet von:
 * Freistaat Thüringen (DE-TH)
 * Freistaat Bayern (DE-BY)
 
+## Tools
+* XmlDedup (für Deduplikation von Formularen)
+
 ## Links
 https://husaft.github.io/Cirali
