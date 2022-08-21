@@ -7,7 +7,7 @@ Zum Beispiel verwendet von:
 * Freistaat Thüringen (DE-TH)
 * Freistaat Bayern (DE-BY)
 
-## Tools
+## Werkzeuge
 * XmlDedup (für Deduplikation von Formularen)
 
 ## Links
