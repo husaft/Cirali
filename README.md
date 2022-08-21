@@ -1,6 +1,6 @@
 # Cirali-XML-Formularformat
 
-Es speichert Formulare für die öffentliche Verwaltung in der Bundesrepublik Deutschland.
+Es speichert Formulare für die öffentliche Verwaltung der Bundesrepublik Deutschland.
 
 Zum Beispiel verwendet von:
 * Land Niedersachsen (DE-NI)
