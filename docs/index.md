@@ -1,4 +1,4 @@
-## Einleitung
+## Cirali
 
 Das Cirali-XML-Format speichert Formulare für die öffentliche Verwaltung der Bundesrepublik Deutschland.
 
