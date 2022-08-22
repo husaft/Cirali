@@ -7,6 +7,6 @@ Zum Beispiel wird es verwendet von:
 * Freistaat Thüringen (DE-TH)
 * Freistaat Bayern (DE-BY)
 
-### Overview
+### Dokumentation
 
-* A view of all elements with attributes as a table [data/example.csv](data/example.csv)
+* Eine Tabelle aller Elemente mit ihren jeweiligen Attributen [data/example.csv](data/example.csv)
