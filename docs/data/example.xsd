@@ -1,0 +1,830 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CIRALI" type="CIRALIType" />
+  <xs:complexType name="CIRALIType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="CONTROLLER" type="CONTROLLERType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FORMINFO" type="FORMINFOType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="OBJECTS" type="OBJECTSType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RESOURCES" type="RESOURCESType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="WORKFLOW" type="WORKFLOWType" />
+    </xs:sequence>
+    <xs:attribute name="changeProg" type="xs:string" use="optional" />
+    <xs:attribute name="changeTime" type="xs:string" use="optional" />
+    <xs:attribute name="version" type="xs:float" use="required" />
+  </xs:complexType>
+  <xs:complexType name="CONTROLLERType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="CODE" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SOURCECODEFILENAME" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SOURCECODE" type="crSOURCECODEType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FORMINFOType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="PAGESIGMA" type="xs:unsignedByte" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BACKGROUND" type="foBACKGROUNDType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CONTROL" type="foCONTROLType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EDITOR" type="foEDITORType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FORMSERVER" type="foFORMSERVERType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OPTIONS" type="foOPTIONSType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PAGESIZE" type="foPAGESIZEType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TAGS" type="foTAGSType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OBJECTSType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BUTTON" type="osBUTTONType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CHECKBOX" type="osCHECKBOXType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CONTAINER" type="osCONTAINERType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DROPDOWN" type="osDROPDOWNType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FRAME" type="osFRAMEType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HOTSPOT" type="osHOTSPOTType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IMAGE" type="osIMAGEType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="INFO" type="osINFOType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LINE" type="osLINEType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RECTANGLE" type="osRECTANGLEType" />
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="TEXT" type="osTEXTType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TEXTAREA" type="osTEXTAREAType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TEXTCLUSTER" type="osTEXTCLUSTERType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TEXTFIELD" type="osTEXTFIELDType" />
+    </xs:sequence>
+    <xs:attribute name="maxBTN" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="maxCHB" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="maxCNT" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="maxDRD" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="maxFRM" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="maxFSG" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="maxHTS" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="maxIMG" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="maxINF" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="maxLIN" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="maxRTA" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="maxTXA" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="maxTXC" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="maxTXF" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="maxTXT" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="maxULG" type="xs:unsignedByte" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="RESOURCESType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CHECKBOX" type="rsCHECKBOXType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DROPDOWN" type="rsDROPDOWNType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FRAME" type="rsFRAMEType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IMAGE" type="rsIMAGEType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="INFO" type="rsINFOType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LINE" type="rsLINEType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RECTANGLE" type="rsRECTANGLEType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TEXT" type="rsTEXTType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TEXTAREA" type="rsTEXTAREAType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TEXTCLUSTER" type="rsTEXTCLUSTERType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TEXTFIELD" type="rsTEXTFIELDType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WORKFLOWType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ATTACHMENTS" type="wwATTACHMENTSType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TRANSPONDER" type="wwTRANSPONDERType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="crSOURCECODEType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="decodedlength" type="xs:unsignedShort" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="foBACKGROUNDType">
+    <xs:attribute name="blue" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="green" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="red" type="xs:unsignedByte" use="required" />
+  </xs:complexType>
+  <xs:complexType name="foCONTROLType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ENCRYPT" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="foEDITORType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="SNAPSIZE" type="xs:float" />
+      <xs:element minOccurs="0" maxOccurs="1" name="COPYOFFSET" type="foerCOPYOFFSETType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RASTERCOLOR" type="foerRASTERCOLORType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RULER" type="foerRULERType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SNAPCOLOR" type="foerSNAPCOLORType" />
+    </xs:sequence>
+    <xs:attribute name="label" type="xs:string" use="optional" />
+    <xs:attribute name="version" type="xs:string" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="foFORMSERVERType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="COPYRIGHT" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CURLAYOUTHC" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FORMID" type="xs:unsignedShort" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FORMNAME" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FORMTIME" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FORMUID" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FORMVERSION" type="xs:unsignedByte" />
+      <xs:element minOccurs="1" maxOccurs="1" name="HREF" type="xs:anyURI" />
+      <xs:element minOccurs="1" maxOccurs="1" name="INSTITUTE" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MANDANTID" type="xs:unsignedByte" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MANDANTUID" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PHYSNAME" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PRODID" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="UID" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="foOPTIONSType">
+    <xs:attribute name="addfields" type="enBool" use="required" />
+  </xs:complexType>
+  <xs:complexType name="foPAGESIZEType">
+    <xs:attribute name="height" type="xs:float" use="required" />
+    <xs:attribute name="width" type="xs:float" use="required" />
+  </xs:complexType>
+  <xs:complexType name="foTAGSType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="TAG" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="osBUTTONType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="blue" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="bold" type="enBool" use="required" />
+        <xs:attribute name="fontface" type="xs:string" use="required" />
+        <xs:attribute name="fontsize" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="green" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="height" type="xs:float" use="required" />
+        <xs:attribute name="objid" type="xs:string" use="required" />
+        <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="print" type="enBool" use="required" />
+        <xs:attribute name="red" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="validate1" type="xs:string" use="required" />
+        <xs:attribute name="width" type="xs:float" use="required" />
+        <xs:attribute name="x" type="xs:float" use="required" />
+        <xs:attribute name="y" type="xs:float" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="osCHECKBOXType">
+    <xs:simpleContent>
+      <xs:extension base="xs:unsignedByte">
+        <xs:attribute name="active" type="enBool" use="optional" />
+        <xs:attribute name="blue" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fsdeletelabel" type="xs:string" use="optional" />
+        <xs:attribute name="fsend" type="xs:float" use="optional" />
+        <xs:attribute name="fshidden" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fslast" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fslegend" type="xs:string" use="optional" />
+        <xs:attribute name="fsnext" type="xs:string" use="optional" />
+        <xs:attribute name="fsnextlabel" type="xs:string" use="optional" />
+        <xs:attribute name="fsstart" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="group" type="xs:unsignedShort" use="optional" />
+        <xs:attribute name="group_exclusive" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="height" type="xs:float" use="required" />
+        <xs:attribute name="hidden" type="enBool" use="optional" />
+        <xs:attribute name="htmldisabled" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="label" type="xs:string" use="optional" />
+        <xs:attribute name="mustfill" type="enBool" use="optional" />
+        <xs:attribute name="name" type="xs:string" use="optional" />
+        <xs:attribute name="nobarrier" type="xs:string" use="optional" />
+        <xs:attribute name="objid" type="xs:string" use="optional" />
+        <xs:attribute name="objnext" type="xs:string" use="optional" />
+        <xs:attribute name="objprev" type="xs:string" use="optional" />
+        <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="print" type="enBool" use="optional" />
+        <xs:attribute name="printborder" type="enBool" use="optional" />
+        <xs:attribute name="radio" type="enBool" use="optional" />
+        <xs:attribute name="tab" type="enBool" use="optional" />
+        <xs:attribute name="validate1" type="xs:string" use="optional" />
+        <xs:attribute name="validate2" type="xs:string" use="optional" />
+        <xs:attribute name="validate3" type="xs:string" use="optional" />
+        <xs:attribute name="validate4" type="xs:string" use="optional" />
+        <xs:attribute name="valparam1" type="xs:string" use="optional" />
+        <xs:attribute name="valparam2" type="xs:string" use="optional" />
+        <xs:attribute name="valparam3" type="xs:string" use="optional" />
+        <xs:attribute name="valparam4" type="xs:string" use="optional" />
+        <xs:attribute name="width" type="xs:float" use="required" />
+        <xs:attribute name="x" type="xs:float" use="required" />
+        <xs:attribute name="y" type="xs:float" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="osCONTAINERType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="height" type="xs:float" use="required" />
+        <xs:attribute name="name" type="xs:string" use="required" />
+        <xs:attribute name="objid" type="xs:string" use="optional" />
+        <xs:attribute name="objprev" type="xs:string" use="optional" />
+        <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="width" type="xs:float" use="required" />
+        <xs:attribute name="x" type="xs:float" use="required" />
+        <xs:attribute name="y" type="xs:float" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="osDROPDOWNType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ITEM" type="osdnITEMType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VALUE" type="xs:unsignedShort" />
+    </xs:sequence>
+    <xs:attribute name="active" type="enBool" use="optional" />
+    <xs:attribute name="blue" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="bold" type="enBool" use="optional" />
+    <xs:attribute name="custom_height" type="enBool" use="optional" />
+    <xs:attribute name="editable" type="enBool" use="optional" />
+    <xs:attribute name="fontface" type="xs:string" use="required" />
+    <xs:attribute name="fontred" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="fontsize" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="fsend" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="fsstart" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="green" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="group" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="height" type="xs:float" use="required" />
+    <xs:attribute name="hidden" type="enBool" use="optional" />
+    <xs:attribute name="ignorefontheight" type="enBool" use="optional" />
+    <xs:attribute name="italic" type="enBool" use="optional" />
+    <xs:attribute name="label" type="xs:string" use="optional" />
+    <xs:attribute name="name" type="xs:string" use="optional" />
+    <xs:attribute name="nobarrier" type="xs:string" use="optional" />
+    <xs:attribute name="objid" type="xs:string" use="optional" />
+    <xs:attribute name="objnext" type="xs:string" use="optional" />
+    <xs:attribute name="objprev" type="xs:string" use="optional" />
+    <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="print" type="enBool" use="optional" />
+    <xs:attribute name="red" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="underline" type="enBool" use="optional" />
+    <xs:attribute name="validate1" type="xs:string" use="optional" />
+    <xs:attribute name="validate2" type="xs:string" use="optional" />
+    <xs:attribute name="valparam1" type="xs:string" use="optional" />
+    <xs:attribute name="valparam2" type="xs:string" use="optional" />
+    <xs:attribute name="width" type="xs:float" use="required" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+  </xs:complexType>
+  <xs:complexType name="osFRAMEType">
+    <xs:attribute name="height" type="xs:float" use="required" />
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="objid" type="xs:string" use="optional" />
+    <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="width" type="xs:float" use="required" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+  </xs:complexType>
+  <xs:complexType name="osHOTSPOTType">
+    <xs:attribute name="height" type="xs:float" use="required" />
+    <xs:attribute name="name" type="xs:string" use="optional" />
+    <xs:attribute name="objid" type="xs:string" use="optional" />
+    <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="print" type="enBool" use="optional" />
+    <xs:attribute name="tab" type="enBool" use="optional" />
+    <xs:attribute name="validate1" type="xs:string" use="optional" />
+    <xs:attribute name="validate4" type="xs:string" use="optional" />
+    <xs:attribute name="valparam1" type="xs:anyURI" use="optional" />
+    <xs:attribute name="valparam4" type="xs:anyURI" use="optional" />
+    <xs:attribute name="width" type="xs:float" use="required" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+  </xs:complexType>
+  <xs:complexType name="osIMAGEType">
+    <xs:simpleContent>
+      <xs:extension base="xs:base64Binary">
+        <xs:attribute name="decodedlength" type="xs:unsignedShort" use="required" />
+        <xs:attribute name="grayscale" type="enBool" use="optional" />
+        <xs:attribute name="halt" type="xs:string" use="optional" />
+        <xs:attribute name="height" type="xs:float" use="required" />
+        <xs:attribute name="mimetype" type="xs:string" use="required" />
+        <xs:attribute name="name" type="xs:string" use="optional" />
+        <xs:attribute name="objid" type="xs:string" use="optional" />
+        <xs:attribute name="objnext" type="xs:string" use="optional" />
+        <xs:attribute name="objprev" type="xs:string" use="optional" />
+        <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="print" type="enBool" use="optional" />
+        <xs:attribute name="sizetype" type="xs:string" use="required" />
+        <xs:attribute name="url" type="xs:string" use="optional" />
+        <xs:attribute name="view" type="enBool" use="optional" />
+        <xs:attribute name="width" type="xs:float" use="required" />
+        <xs:attribute name="x" type="xs:float" use="required" />
+        <xs:attribute name="y" type="xs:float" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="osINFOType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="customizable" type="enBool" use="optional" />
+        <xs:attribute name="fsend" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fsstart" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="height" type="xs:float" use="required" />
+        <xs:attribute name="iconsize" type="xs:string" use="optional" />
+        <xs:attribute name="name" type="xs:string" use="optional" />
+        <xs:attribute name="objid" type="xs:string" use="optional" />
+        <xs:attribute name="objnext" type="xs:string" use="optional" />
+        <xs:attribute name="objprev" type="xs:string" use="optional" />
+        <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="tab" type="enBool" use="optional" />
+        <xs:attribute name="width" type="xs:float" use="required" />
+        <xs:attribute name="x" type="xs:float" use="required" />
+        <xs:attribute name="y" type="xs:float" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="osLINEType">
+    <xs:attribute name="blue" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="green" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="hidden" type="enBool" use="optional" />
+    <xs:attribute name="linesize" type="xs:float" use="optional" />
+    <xs:attribute name="name" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="objid" type="xs:string" use="optional" />
+    <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="print" type="enBool" use="optional" />
+    <xs:attribute name="red" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="view" type="enBool" use="optional" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="x2" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+    <xs:attribute name="y2" type="xs:float" use="required" />
+  </xs:complexType>
+  <xs:complexType name="osRECTANGLEType">
+    <xs:attribute name="blue" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="drawtype" type="xs:string" use="optional" />
+    <xs:attribute name="green" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="height" type="xs:float" use="required" />
+    <xs:attribute name="hidden" type="enBool" use="optional" />
+    <xs:attribute name="linesize" type="xs:float" use="optional" />
+    <xs:attribute name="name" type="xs:string" use="optional" />
+    <xs:attribute name="objid" type="xs:string" use="optional" />
+    <xs:attribute name="orientation" type="xs:string" use="optional" />
+    <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="print" type="enBool" use="optional" />
+    <xs:attribute name="red" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="shape" type="xs:string" use="optional" />
+    <xs:attribute name="view" type="enBool" use="optional" />
+    <xs:attribute name="width" type="xs:float" use="required" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+  </xs:complexType>
+  <xs:complexType name="osTEXTType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="align" type="xs:string" use="optional" />
+        <xs:attribute name="angle" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="bold" type="enBool" use="optional" />
+        <xs:attribute name="fontblue" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fontface" type="xs:string" use="required" />
+        <xs:attribute name="fontgreen" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fontred" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fontsize" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="fsdeletelabel" type="xs:string" use="optional" />
+        <xs:attribute name="fsend" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fshidden" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fslast" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fslegend" type="xs:string" use="optional" />
+        <xs:attribute name="fsnext" type="xs:string" use="optional" />
+        <xs:attribute name="fsnextlabel" type="xs:string" use="optional" />
+        <xs:attribute name="fsstart" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="height" type="xs:float" use="required" />
+        <xs:attribute name="hidden" type="enBool" use="optional" />
+        <xs:attribute name="hstruct" type="xs:string" use="optional" />
+        <xs:attribute name="italic" type="enBool" use="optional" />
+        <xs:attribute name="lineheight" type="xs:float" use="optional" />
+        <xs:attribute name="name" type="xs:string" use="optional" />
+        <xs:attribute name="objid" type="xs:string" use="optional" />
+        <xs:attribute name="objnext" type="xs:string" use="optional" />
+        <xs:attribute name="objprev" type="xs:string" use="optional" />
+        <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="print" type="enBool" use="optional" />
+        <xs:attribute name="ulend" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="ulstart" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="underline" type="enBool" use="optional" />
+        <xs:attribute name="validate1" type="xs:string" use="optional" />
+        <xs:attribute name="validate2" type="xs:string" use="optional" />
+        <xs:attribute name="valparam1" type="xs:string" use="optional" />
+        <xs:attribute name="view" type="enBool" use="optional" />
+        <xs:attribute name="width" type="xs:float" use="required" />
+        <xs:attribute name="x" type="xs:float" use="required" />
+        <xs:attribute name="y" type="xs:float" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="osTEXTAREAType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="active" type="enBool" use="optional" />
+        <xs:attribute name="blue" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="bold" type="enBool" use="optional" />
+        <xs:attribute name="border" type="enBool" use="optional" />
+        <xs:attribute name="customizable" type="enBool" use="optional" />
+        <xs:attribute name="fontface" type="xs:string" use="required" />
+        <xs:attribute name="fontsize" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="fsbase" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fsdeletelabel" type="xs:string" use="optional" />
+        <xs:attribute name="fsend" type="xs:string" use="optional" />
+        <xs:attribute name="fshidden" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fslast" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fslegend" type="xs:string" use="optional" />
+        <xs:attribute name="fsmin" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fsnext" type="xs:string" use="optional" />
+        <xs:attribute name="fsnextlabel" type="xs:string" use="optional" />
+        <xs:attribute name="fsstart" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="group" type="xs:unsignedShort" use="optional" />
+        <xs:attribute name="height" type="xs:float" use="required" />
+        <xs:attribute name="hidden" type="enBool" use="optional" />
+        <xs:attribute name="htmlhidden" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="ignorelines" type="enBool" use="optional" />
+        <xs:attribute name="label" type="xs:string" use="optional" />
+        <xs:attribute name="lineheight" type="xs:float" use="required" />
+        <xs:attribute name="lines" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="linesize" type="xs:float" use="optional" />
+        <xs:attribute name="maxlen" type="xs:unsignedShort" use="optional" />
+        <xs:attribute name="mustfill" type="enBool" use="optional" />
+        <xs:attribute name="name" type="xs:string" use="required" />
+        <xs:attribute name="nobarrier" type="xs:string" use="optional" />
+        <xs:attribute name="objid" type="xs:string" use="optional" />
+        <xs:attribute name="objnext" type="xs:string" use="optional" />
+        <xs:attribute name="objprev" type="xs:string" use="optional" />
+        <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="print" type="enBool" use="optional" />
+        <xs:attribute name="tab" type="enBool" use="optional" />
+        <xs:attribute name="validate1" type="xs:string" use="optional" />
+        <xs:attribute name="validate2" type="xs:string" use="optional" />
+        <xs:attribute name="valparam1" type="xs:string" use="optional" />
+        <xs:attribute name="valparam2" type="xs:string" use="optional" />
+        <xs:attribute name="view" type="enBool" use="optional" />
+        <xs:attribute name="width" type="xs:float" use="required" />
+        <xs:attribute name="x" type="xs:float" use="required" />
+        <xs:attribute name="y" type="xs:float" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="osTEXTCLUSTERType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ATOM" type="ostrATOMType" />
+    </xs:sequence>
+    <xs:attribute name="align" type="xs:string" use="optional" />
+    <xs:attribute name="angle" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="fsend" type="xs:string" use="optional" />
+    <xs:attribute name="fshidden" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="fslegend" type="xs:string" use="optional" />
+    <xs:attribute name="fsstart" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="height" type="xs:float" use="required" />
+    <xs:attribute name="hstruct" type="xs:string" use="optional" />
+    <xs:attribute name="lineheight" type="xs:float" use="optional" />
+    <xs:attribute name="name" type="xs:string" use="optional" />
+    <xs:attribute name="objid" type="xs:string" use="optional" />
+    <xs:attribute name="objnext" type="xs:string" use="optional" />
+    <xs:attribute name="objprev" type="xs:string" use="optional" />
+    <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="print" type="enBool" use="optional" />
+    <xs:attribute name="ulend" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="ulstart" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="view" type="enBool" use="optional" />
+    <xs:attribute name="width" type="xs:float" use="required" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+  </xs:complexType>
+  <xs:complexType name="osTEXTFIELDType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="active" type="enBool" use="optional" />
+        <xs:attribute name="align" type="xs:string" use="optional" />
+        <xs:attribute name="blue" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="bold" type="enBool" use="optional" />
+        <xs:attribute name="border" type="enBool" use="optional" />
+        <xs:attribute name="custom_height" type="enBool" use="optional" />
+        <xs:attribute name="fontface" type="xs:string" use="required" />
+        <xs:attribute name="fontred" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fontsize" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="fsbase" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fsdeletelabel" type="xs:string" use="optional" />
+        <xs:attribute name="fsend" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fshidden" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fslast" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fslegend" type="xs:string" use="optional" />
+        <xs:attribute name="fsmin" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fsnext" type="xs:string" use="optional" />
+        <xs:attribute name="fsnextlabel" type="xs:string" use="optional" />
+        <xs:attribute name="fsstart" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="green" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="group" type="xs:unsignedShort" use="optional" />
+        <xs:attribute name="height" type="xs:float" use="required" />
+        <xs:attribute name="hidden" type="enBool" use="optional" />
+        <xs:attribute name="htmlhidden" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="ignorefontheight" type="enBool" use="optional" />
+        <xs:attribute name="label" type="xs:string" use="optional" />
+        <xs:attribute name="linesize" type="xs:float" use="optional" />
+        <xs:attribute name="maxlen" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="mustfill" type="enBool" use="optional" />
+        <xs:attribute name="name" type="xs:string" use="optional" />
+        <xs:attribute name="nobarrier" type="xs:string" use="optional" />
+        <xs:attribute name="objid" type="xs:string" use="optional" />
+        <xs:attribute name="objnext" type="xs:string" use="optional" />
+        <xs:attribute name="objprev" type="xs:string" use="optional" />
+        <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="print" type="enBool" use="optional" />
+        <xs:attribute name="red" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="tab" type="enBool" use="optional" />
+        <xs:attribute name="validate1" type="xs:string" use="optional" />
+        <xs:attribute name="validate2" type="xs:string" use="optional" />
+        <xs:attribute name="validate3" type="xs:string" use="optional" />
+        <xs:attribute name="validate4" type="xs:string" use="optional" />
+        <xs:attribute name="validate5" type="xs:string" use="optional" />
+        <xs:attribute name="valparam1" type="xs:string" use="optional" />
+        <xs:attribute name="valparam2" type="xs:string" use="optional" />
+        <xs:attribute name="valparam3" type="xs:string" use="optional" />
+        <xs:attribute name="valparam4" type="xs:string" use="optional" />
+        <xs:attribute name="valparam5" type="xs:string" use="optional" />
+        <xs:attribute name="view" type="enBool" use="optional" />
+        <xs:attribute name="width" type="xs:float" use="required" />
+        <xs:attribute name="x" type="xs:float" use="required" />
+        <xs:attribute name="y" type="xs:float" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="rsCHECKBOXType">
+    <xs:simpleContent>
+      <xs:extension base="xs:unsignedByte">
+        <xs:attribute name="height" type="xs:float" use="required" />
+        <xs:attribute name="name" type="xs:string" use="required" />
+        <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="validate1" type="xs:string" use="optional" />
+        <xs:attribute name="valparam1" type="xs:string" use="optional" />
+        <xs:attribute name="width" type="xs:float" use="required" />
+        <xs:attribute name="x" type="xs:float" use="required" />
+        <xs:attribute name="y" type="xs:float" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="rsDROPDOWNType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="ITEM" type="rsdnITEMType" />
+    </xs:sequence>
+    <xs:attribute name="fontface" type="xs:string" use="required" />
+    <xs:attribute name="fontsize" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="height" type="xs:float" use="required" />
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="width" type="xs:float" use="required" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+  </xs:complexType>
+  <xs:complexType name="rsFRAMEType">
+    <xs:attribute name="height" type="xs:float" use="required" />
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="width" type="xs:float" use="required" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+  </xs:complexType>
+  <xs:complexType name="rsIMAGEType">
+    <xs:simpleContent>
+      <xs:extension base="xs:base64Binary">
+        <xs:attribute name="decodedlength" type="xs:unsignedShort" use="required" />
+        <xs:attribute name="height" type="xs:float" use="required" />
+        <xs:attribute name="mimetype" type="xs:string" use="required" />
+        <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="sizetype" type="xs:string" use="required" />
+        <xs:attribute name="width" type="xs:float" use="required" />
+        <xs:attribute name="x" type="xs:float" use="required" />
+        <xs:attribute name="y" type="xs:float" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="rsINFOType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="height" type="xs:float" use="required" />
+        <xs:attribute name="iconsize" type="xs:string" use="required" />
+        <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="width" type="xs:float" use="required" />
+        <xs:attribute name="x" type="xs:float" use="required" />
+        <xs:attribute name="y" type="xs:float" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="rsLINEType">
+    <xs:attribute name="linesize" type="xs:float" use="required" />
+    <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="x2" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+    <xs:attribute name="y2" type="xs:float" use="required" />
+  </xs:complexType>
+  <xs:complexType name="rsRECTANGLEType">
+    <xs:attribute name="blue" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="drawtype" type="xs:string" use="optional" />
+    <xs:attribute name="green" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="height" type="xs:float" use="required" />
+    <xs:attribute name="linesize" type="xs:float" use="optional" />
+    <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="red" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="shape" type="xs:string" use="optional" />
+    <xs:attribute name="width" type="xs:float" use="required" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+  </xs:complexType>
+  <xs:complexType name="rsTEXTType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="align" type="xs:string" use="optional" />
+        <xs:attribute name="angle" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="bold" type="enBool" use="optional" />
+        <xs:attribute name="fontface" type="xs:string" use="required" />
+        <xs:attribute name="fontred" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fontsize" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="height" type="xs:float" use="required" />
+        <xs:attribute name="italic" type="enBool" use="optional" />
+        <xs:attribute name="lineheight" type="xs:float" use="optional" />
+        <xs:attribute name="name" type="xs:string" use="optional" />
+        <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+        <xs:attribute name="underline" type="enBool" use="optional" />
+        <xs:attribute name="width" type="xs:float" use="required" />
+        <xs:attribute name="x" type="xs:float" use="required" />
+        <xs:attribute name="y" type="xs:float" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="rsTEXTAREAType">
+    <xs:attribute name="border" type="enBool" use="optional" />
+    <xs:attribute name="fontface" type="xs:string" use="required" />
+    <xs:attribute name="fontsize" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="group" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="height" type="xs:float" use="required" />
+    <xs:attribute name="lineheight" type="xs:float" use="required" />
+    <xs:attribute name="lines" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="maxlen" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="validate1" type="xs:string" use="optional" />
+    <xs:attribute name="valparam1" type="xs:string" use="optional" />
+    <xs:attribute name="width" type="xs:float" use="required" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+  </xs:complexType>
+  <xs:complexType name="rsTEXTCLUSTERType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ATOM" type="rstrATOMType" />
+    </xs:sequence>
+    <xs:attribute name="height" type="xs:float" use="required" />
+    <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="width" type="xs:float" use="required" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+  </xs:complexType>
+  <xs:complexType name="rsTEXTFIELDType">
+    <xs:attribute name="align" type="xs:string" use="optional" />
+    <xs:attribute name="bold" type="enBool" use="optional" />
+    <xs:attribute name="fontface" type="xs:string" use="required" />
+    <xs:attribute name="fontsize" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="height" type="xs:float" use="required" />
+    <xs:attribute name="maxlen" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="mustfill" type="enBool" use="optional" />
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="page" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="validate1" type="xs:string" use="optional" />
+    <xs:attribute name="validate2" type="xs:string" use="optional" />
+    <xs:attribute name="validate3" type="xs:string" use="optional" />
+    <xs:attribute name="validate4" type="xs:string" use="optional" />
+    <xs:attribute name="valparam1" type="xs:string" use="optional" />
+    <xs:attribute name="valparam2" type="xs:string" use="optional" />
+    <xs:attribute name="valparam3" type="xs:string" use="optional" />
+    <xs:attribute name="valparam4" type="xs:string" use="optional" />
+    <xs:attribute name="width" type="xs:float" use="required" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+  </xs:complexType>
+  <xs:complexType name="wwATTACHMENTSType">
+    <xs:attribute name="filter" type="xs:string" use="optional" />
+    <xs:attribute name="maxsize" type="xs:unsignedByte" use="optional" />
+    <xs:attribute name="sigma" type="xs:unsignedByte" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="wwTRANSPONDERType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ENCRYPTION" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="HOST" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PORT" type="xs:unsignedShort" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PROCESS" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PROTOCOL" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SERVICE" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OSCI" type="wwtrOSCIType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SUBJECT" type="wwtrSUBJECTType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="foerCOPYOFFSETType">
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+  </xs:complexType>
+  <xs:complexType name="foerRASTERCOLORType">
+    <xs:attribute name="blue" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="green" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="red" type="xs:unsignedByte" use="required" />
+  </xs:complexType>
+  <xs:complexType name="foerRULERType">
+    <xs:attribute name="blue" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="bmargin" type="xs:float" use="required" />
+    <xs:attribute name="duplexoffset" type="xs:float" use="optional" />
+    <xs:attribute name="green" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="h10y" type="xs:float" use="optional" />
+    <xs:attribute name="h1y" type="xs:float" use="required" />
+    <xs:attribute name="h2y" type="xs:float" use="required" />
+    <xs:attribute name="h3y" type="xs:float" use="required" />
+    <xs:attribute name="h4y" type="xs:float" use="required" />
+    <xs:attribute name="h5y" type="xs:float" use="optional" />
+    <xs:attribute name="h6y" type="xs:float" use="optional" />
+    <xs:attribute name="h7y" type="xs:float" use="optional" />
+    <xs:attribute name="h8y" type="xs:float" use="optional" />
+    <xs:attribute name="h9y" type="xs:float" use="optional" />
+    <xs:attribute name="lmargin" type="xs:float" use="required" />
+    <xs:attribute name="red" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="rmargin" type="xs:float" use="required" />
+    <xs:attribute name="tmargin" type="xs:float" use="required" />
+    <xs:attribute name="v10x" type="xs:float" use="optional" />
+    <xs:attribute name="v1x" type="xs:float" use="required" />
+    <xs:attribute name="v2x" type="xs:float" use="required" />
+    <xs:attribute name="v3x" type="xs:float" use="required" />
+    <xs:attribute name="v4x" type="xs:float" use="required" />
+    <xs:attribute name="v5x" type="xs:float" use="optional" />
+    <xs:attribute name="v6x" type="xs:float" use="optional" />
+    <xs:attribute name="v7x" type="xs:float" use="optional" />
+    <xs:attribute name="v8x" type="xs:float" use="optional" />
+    <xs:attribute name="v9x" type="xs:float" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="foerSNAPCOLORType">
+    <xs:attribute name="blue" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="green" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="red" type="xs:unsignedByte" use="required" />
+  </xs:complexType>
+  <xs:complexType name="osdnITEMType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="map" type="xs:string" use="optional" />
+        <xs:attribute name="validate1" type="xs:string" use="optional" />
+        <xs:attribute name="validate2" type="xs:string" use="optional" />
+        <xs:attribute name="valparam1" type="xs:string" use="optional" />
+        <xs:attribute name="valparam2" type="xs:string" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="ostrATOMType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="bold" type="enBool" use="optional" />
+        <xs:attribute name="fontblue" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fontface" type="xs:string" use="required" />
+        <xs:attribute name="fontgreen" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fontred" type="xs:unsignedByte" use="optional" />
+        <xs:attribute name="fontsize" type="xs:float" use="required" />
+        <xs:attribute name="italic" type="enBool" use="optional" />
+        <xs:attribute name="underline" type="enBool" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="rsdnITEMType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="map" type="xs:string" use="optional" />
+        <xs:attribute name="validate1" type="xs:string" use="optional" />
+        <xs:attribute name="validate2" type="xs:string" use="optional" />
+        <xs:attribute name="validate3" type="xs:string" use="optional" />
+        <xs:attribute name="valparam1" type="xs:string" use="optional" />
+        <xs:attribute name="valparam2" type="xs:string" use="optional" />
+        <xs:attribute name="valparam3" type="xs:string" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="rstrATOMType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="fontface" type="xs:string" use="required" />
+        <xs:attribute name="fontsize" type="xs:float" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="wwtrOSCIType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ATTACHMENTS" type="enBool" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BACKEND_CER" type="xs:base64Binary" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DEBUG_LEVEL" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="INTERMED_CER" type="xs:base64Binary" />
+      <xs:element minOccurs="1" maxOccurs="1" name="INTERMED_URL" type="xs:anyURI" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SIGNATURE_NUMBER" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ATTACHMENTS_EXTS" type="wwtroiATTACHMENTS_EXTSType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ATTACHMENTS_MAX_MB" type="wwtroiATTACHMENTS_MAX_MBType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PROVIDER_ACCREDITATION" type="wwtroiPROVIDER_ACCREDITATIONType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SIGNATURE_LEVEL" type="wwtroiSIGNATURE_LEVELType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wwtrSUBJECTType" />
+  <xs:complexType name="wwtroiATTACHMENTS_EXTSType" />
+  <xs:complexType name="wwtroiATTACHMENTS_MAX_MBType" />
+  <xs:complexType name="wwtroiPROVIDER_ACCREDITATIONType" />
+  <xs:complexType name="wwtroiSIGNATURE_LEVELType" />
+  <xs:simpleType name="enBool">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="yes" />
+      <xs:enumeration value="no" />
+      <xs:enumeration value="YES" />
+      <xs:enumeration value="NO" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

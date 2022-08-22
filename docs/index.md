@@ -11,3 +11,4 @@ Zum Beispiel wird es verwendet von:
 
 * Eine Tabelle aller Elemente mit ihren jeweiligen Attributen: [data/example.csv](data/example.csv)
 * Ein Graph aller Elemente, als [data/example.png](data/example.png) und [data/example.svg](data/example.svg)
+* Ein XML-Schema für die Validierung von Formularen: [data/example.xsd](data/example.xsd)
