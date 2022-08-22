@@ -54,3 +54,16 @@ Rathausplatz 1
   </WORKFLOW>
 </CIRALI>
 ```
+
+### Beispielverwendung
+
+Der autogenerierte Code für dieses Listing befindet sich in [data/example.cs](data/example.cs):
+
+```csharp
+private static void ReadAndWrite(string input, string output)
+{
+    var serializer = new XmlSerializer(typeof(CIRALI));
+    var xml = (CIRALI)serializer.Deserialize(File.OpenRead(input));
+    serializer.Serialize(XmlWriter.Create(File.Create(output), new XmlWriterSettings { Indent = true }), xml);
+}
+```
