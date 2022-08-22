@@ -10,4 +10,4 @@ Zum Beispiel wird es verwendet von:
 ### Dokumentation
 
 * Eine Tabelle aller Elemente mit ihren jeweiligen Attributen: [data/example.csv](data/example.csv)
-* Ein Graph aller Elemente: [data/example.png](data/example.png) [data/example.svg](data/example.svg)
+* Ein Graph aller Elemente, als [data/example.png](data/example.png) und [data/example.svg](data/example.svg)
