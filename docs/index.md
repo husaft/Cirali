@@ -9,4 +9,4 @@ Zum Beispiel wird es verwendet von:
 
 ### Dokumentation
 
-* Eine Tabelle aller Elemente mit ihren jeweiligen Attributen [data/example.csv](data/example.csv)
+* Eine Tabelle aller Elemente mit ihren jeweiligen Attributen: [data/example.csv](data/example.csv)
