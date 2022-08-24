@@ -60,44 +60,44 @@ namespace XmlDedup
                 Update(bounds.CIRALI, double.Parse(ver ?? "0"));
                 Update(bounds.FORMVERSION, long.Parse(fv));
                 Update(bounds.MANDANTID, long.Parse(man));
-
-                var grouped = map.GroupBy(m => m.Value).ToArray();
-
-                var steps = grouped
-                    .Select(g => g.Key.ToString())
-                    .OrderBy(static e => e);
-                WriteJson(steps, nameof(grouped));
-                WriteJson(bounds, nameof(bounds));
-
-                var keys = grouped.Select(g => $"{g.Key.id}{g.Key.man}{g.Key.fv}")
-                    .Distinct().ToArray();
-                if (keys.Length != grouped.Length)
-                    throw new InvalidOperationException($"Not unique! {string.Join(", ", keys)}");
-
-                Console.WriteLine();
-
-                foreach (var tuple in grouped)
-                {
-                    var bestFile = tuple.Select(t => new FileInfo(t.Key))
-                        .OrderByDescending(t => t.Length).First().FullName;
-                    Console.WriteLine(" + Winner is '{0}'!", bestFile);
-                    foreach (var other in tuple)
-                    {
-                        if (other.Key.Equals(bestFile))
-                            continue;
-                        Console.WriteLine(" - Deleting '{0}'...", other.Key);
-                        File.Delete(other.Key);
-                    }
-                    var g = new { tuple.Key };
-                    var destFile = Path.Combine(Path.GetDirectoryName(bestFile)!,
-                        $"{g.Key.id}{g.Key.man}{g.Key.fv}.xml");
-                    if (bestFile.Equals(destFile))
-                        continue;
-                    File.Move(bestFile, destFile);
-                }
-
-                Console.WriteLine("Done.");
             }
+
+            var grouped = map.GroupBy(m => m.Value).ToArray();
+
+            var steps = grouped
+                .Select(g => g.Key.ToString())
+                .OrderBy(static e => e);
+            WriteJson(steps, nameof(grouped));
+            WriteJson(bounds, nameof(bounds));
+
+            var keys = grouped.Select(g => $"{g.Key.id}{g.Key.man}{g.Key.fv}")
+                .Distinct().ToArray();
+            if (keys.Length != grouped.Length)
+                throw new InvalidOperationException($"Not unique! {string.Join(", ", keys)}");
+
+            Console.WriteLine();
+
+            foreach (var tuple in grouped)
+            {
+                var bestFile = tuple.Select(t => new FileInfo(t.Key))
+                    .OrderByDescending(t => t.Length).First().FullName;
+                Console.WriteLine(" + Winner is '{0}'!", bestFile);
+                foreach (var other in tuple)
+                {
+                    if (other.Key.Equals(bestFile))
+                        continue;
+                    Console.WriteLine(" - Deleting '{0}'...", other.Key);
+                    File.Delete(other.Key);
+                }
+                var g = new { tuple.Key };
+                var destFile = Path.Combine(Path.GetDirectoryName(bestFile)!,
+                    $"{g.Key.id}{g.Key.man}{g.Key.fv}.xml");
+                if (bestFile.Equals(destFile))
+                    continue;
+                File.Move(bestFile, destFile);
+            }
+
+            Console.WriteLine("Done.");
         }
     }
 }
